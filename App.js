@@ -17,7 +17,7 @@ export default function App() {
     const valores = turma;
 
 
-    fetch('http://localhost/ProjetoRelatorio/ProjetoRelatorio/relatorio-json-insert.php', {
+    fetch('http://localhost:8080/ProjetoRelatorio/ProjetoRelatorio/relatorio-json-insert.php', {
       method: 'post',
       header: {
         'Accept': 'application/json',
@@ -32,7 +32,7 @@ export default function App() {
       })
     })
 
-    setDados(valores,valores2)
+    setDados(valores)
   }
 
   // const getCategorias = async () => {
@@ -63,7 +63,7 @@ export default function App() {
   // }, []);
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:'#fff6f6'}}>
 
     <View style={styles.container}>
 
@@ -87,7 +87,8 @@ export default function App() {
           />
         )} */
       }
-      <Text>Relatório do Bimestre</Text>
+      <Text style={styles.h1}>Relatório do Bimestre</Text>
+      <View style={styles.forms}>
       <TextInput
         placeholder='Turma'
         placeholderTextColor={'#000'}
@@ -130,14 +131,17 @@ export default function App() {
 
         onChangeText={text => setComentario(text)}
       />
+      <View>
+        
       <Button
-        title='salvar'
-        onPress={() => verificar()}
+      title='salvar'
+      onPress={() => verificar()}
+      color="#F9B5B5"
       />
-
-      <View style={styles.button}>
-        <Text> {dados}  </Text>
+        
       </View>
+      </View>
+      
     </View>
     </ScrollView>
 
@@ -153,16 +157,35 @@ const styles = StyleSheet.create({
     paddingTop:100 
   },
   TextInput: {
-    margin:15,
-    color:"#000",
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    fontFamily:'monospace',
+    borderRadius: 48
+    
   },
-  button: {
-    margin: 15,
-    borderRadius:1000
+  StyleCadrasto: {
   },
   Comentarios: {
-    height:100,
-    color:"#000",
-    maxLength:40
-  }
+    height: 80,
+    margin: 12,
+    borderWidth: 1,
+    padding: 5,
+    borderRadius: 16
+
+  }, 
+  forms:
+  {
+    backgroundColor: '#fff9f9',
+    width:'80%',
+    
+  },
+  h1: 
+  {
+    fontSize:25,
+    padding:10,
+    fontFamily:'monospace'
+  
+  },
 });
