@@ -3,6 +3,8 @@ import { ActivityIndicator, Button, FlatList, Text, TextInput, View, StyleSheet 
 import { ScrollView } from 'react-native-web';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MapView from 'react-native-maps';
+
 
 export default function App() {
 
@@ -127,7 +129,14 @@ export default function App() {
   function mapa(){
     return(     
        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Colocar maps</Text>
+       <MapView
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      />
       </View>
     )
   }
